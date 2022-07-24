@@ -20,7 +20,6 @@
     <div id="app">
         {{ $slot }}
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
