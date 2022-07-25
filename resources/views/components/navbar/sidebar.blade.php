@@ -4,16 +4,16 @@
         <button class="navbar-toggler ms-n2" type="button" data-collapse-toggle="_navbar_collapse" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="sidebar__collapse py-lg-5 mb-lg-5 px-lg-6 me-0">
+        <div class="sidebar__collapse py-lg-5 mb-lg-5 px-lg-6 me-0" data-collapse-toggle="_sidebar_collapse" role="button" trigger-hover>
             <!-- Brand -->
             <div class="sidebar__brand">
-                <a class="navbar-brand " href="#">
+                <a class="navbar-brand" role="button">
                     <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" alt="...">
                 </a>
             </div>
             <!-- Toggle sidebar -->
-            <div class="collapse navbar-collapse sidebar__toggle" role="button" data-collapse-toggle="_sidebar_collapse">
-                <i class="fa-solid fa-left-right"></i>
+            <div class="collapse navbar-collapse sidebar__toggle" role="button">
+                <i class="fa-solid fa-left-right" triggered-hover></i>
             </div>
 
 
@@ -22,12 +22,11 @@
         <!-- User menu (mobile) -->
         <div class="navbar-user d-lg-none">
             <!-- Dropdown -->
-            <div class="dropdown" data-dropdown-toggle="_user_dropdown">
+            <div class="dropdown">
                 <!-- Toggle -->
-                <a id="sidebarAvatar" role="button">
+                <a id="sidebarAvatar" role="button" data-dropdown-toggle="_user_dropdown" trigger-hover>
                     <div class="avatar rounded-circle text-white">
-                        <img alt="..." src="{{ gravatar(auth()->user()->email) }}">
-                        {{-- https://images.unsplash.com/photo-1579463148228-138296ac3b98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80 --}}
+                        <img alt="..." src="{{ gravatar(auth()->user()->email) }}" triggered-hover>
                     </div>
                 </a>
                 <!-- Menu -->
@@ -37,11 +36,7 @@
                         <span class="d-block text-heading font-semibold">{{ auth()->user()->name }}</span>
                     </div>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
+                    <x-dropdown.dropdown-item :name="'Sair'" :route="route('logout')" :method='POST' />
                 </div>
             </div>
         </div>

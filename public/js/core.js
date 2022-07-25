@@ -40,37 +40,94 @@
     }
 
     function bindAllCollapse() {
+
         $('*[data-collapse-toggle]').each(function() {
             var id = $(this).attr('data-collapse-toggle');
+            var mouseInside = true;
+
             $('[data-collapse-toggle=' + id + ']').unbind().bind('click', function() {
                 var toggler = $('#' + id);
                 var isShowing = toggler.hasClass('show');
                 if (isShowing) toggler.removeClass('show');
                 else toggler.addClass('show');
+                mouseInside = true;
                 console.log('Show ' + id + ': ' + !isShowing);
             });
-        });
 
+
+            $('#' + id).mouseenter(function() {
+                mouseInside = true;
+            }).mouseleave(function() {
+                mouseInside = false;
+            });
+
+            $("html").click(function() {
+                var hasClass = $('#' + id).hasClass('show');
+
+                if (!mouseInside && hasClass) {
+                    console.log('fechar ' + id);
+                    $('#' + id).removeClass('show');
+                }
+            });
+
+        });
     }
 
     function bindAllDropdown() {
+        let mouseHover = null;
+        let mouseInside = false;
+        let lastMousePosition = null;
+        let lastClickedPosition = null;
+
         $('*[data-dropdown-toggle]').each(function() {
             var id = $(this).attr('data-dropdown-toggle');
             $('[data-dropdown-toggle=' + id + ']').unbind().bind('click', function() {
-
+                // Fecha outros dropdowns
                 closeAllDropdown(id);
-
+                // Guarda a ultima posição clicada do mouse
+                var samePosition = lastClickedPosition === lastMousePosition;
+                // Verifica se vai abrir ou fechar o dropdown
                 var dropdownToggler = $(this);
                 var isShowingForDropdown = dropdownToggler.hasClass('show');
-                if (isShowingForDropdown) dropdownToggler.removeClass('show');
+                if (isShowingForDropdown && (mouseHover === false || samePosition)) dropdownToggler.removeClass('show');
                 else dropdownToggler.addClass('show');
 
                 var dropdownMenuToggler = $('#' + id);
                 var isShowingForDropdownMenu = dropdownMenuToggler.hasClass('show');
-                if (isShowingForDropdownMenu) dropdownMenuToggler.removeClass('show');
+                if (isShowingForDropdownMenu && (mouseHover === false || samePosition)) dropdownMenuToggler.removeClass('show');
                 else dropdownMenuToggler.addClass('show');
 
-                console.log('Show ' + id + ': ' + !isShowingForDropdownMenu);
+                console.log(lastMousePosition, samePosition, mouseHover, isShowingForDropdownMenu && (mouseHover === false || samePosition));
+                mouseHover = true;
+                lastClickedPosition = lastMousePosition;
+                // console.log('Show ' + id + ': ' + !isShowingForDropdownMenu);
+            });
+            var element = $('#' + id);
+
+            element.mouseenter(function() {
+                mouseInside = true;
+            }).mouseleave(function() {
+                mouseInside = false;
+            });
+
+            $("html").mousemove(function(event) {
+                lastMousePosition = event.pageX + ", " + event.pageY;
+
+                if ($('#' + id + ':hover').length != 0) {
+                    mouseHover = true;
+                } else {
+                    mouseHover = false;
+                }
+            });
+
+            $("html").click(function() {
+                var hasClass = element.hasClass('show');
+                var canCloseOnLeave = element.attr('dont-close-on-leave') === undefined;
+
+                if ((mouseHover === false && mouseInside === false) && hasClass && canCloseOnLeave) {
+                    console.log('closed', mouseHover);
+                    element.removeClass('show');
+                }
             });
         });
     }
@@ -78,9 +135,11 @@
     function closeAllDropdown(openId) {
         $('*[data-dropdown-toggle].show').each(function() {
             var id = $(this).attr('data-dropdown-toggle');
-            if(id == openId) return;
+            if (id == openId) return;
             $(this).removeClass('show');
             $('#' + id).removeClass('show');
         });
     }
+
+
 })()

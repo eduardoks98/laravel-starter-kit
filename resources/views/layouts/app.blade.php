@@ -28,7 +28,7 @@
             <!-- Vertical Navbar -->
             <x-navbar.sidebar />
             <!-- Main content -->
-            <div class="h-screen  flex-grow-1 overflow-y-lg-auto">
+            <div class="main__container h-screen  flex-grow-1 overflow-y-lg-auto">
                 <!-- Horizontal Header -->
                 <x-navbar.header />
                 <main class="py-10 bg-surface-secondary">
