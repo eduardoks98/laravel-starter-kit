@@ -21,24 +21,22 @@
 
         <!-- User menu (mobile) -->
         <div class="navbar-user d-lg-none">
-            <!-- Dropdown -->
-            <div class="dropdown">
-                <!-- Toggle -->
-                <a id="sidebarAvatar" role="button" data-dropdown-toggle="_user_dropdown" trigger-hover>
-                    <div class="avatar rounded-circle text-white">
-                        <img alt="..." src="{{ gravatar(auth()->user()->email) }}" triggered-hover>
-                    </div>
-                </a>
-                <!-- Menu -->
-                <div class="dropdown-menu dropdown-menu-right" id="_user_dropdown">
-                    <div class="dropdown-item">
+            <x-dropdown :toggle="'_user'" >
+                <x-slot:button>
+                    <a id="sidebarAvatar" role="button" data-dropdown-toggle="_user_dropdown" trigger-hover>
+                        <div class="avatar rounded-circle text-white">
+                            <img alt="..." src="{{ gravatar(auth()->user()->email) }}" triggered-hover>
+                        </div>
+                    </a>
+                </x-slot:button>
+                <x-dropdown-item>
+                    <x-slot:name>
                         <span class="d-block text-sm text-muted mb-1">Bem vindo(a)</span>
                         <span class="d-block text-heading font-semibold">{{ auth()->user()->name }}</span>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <x-dropdown.dropdown-item :name="'Sair'" :route="route('logout')" :method='POST' />
-                </div>
-            </div>
+                    </x-slot:name>
+                </x-dropdown-item>
+                <x-dropdown-item :name="'Sair'" :route="route('logout')" :method="'POST'" :withDivider=true/>
+            </x-dropdown>
         </div>
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="_navbar_collapse">

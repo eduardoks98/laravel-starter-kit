@@ -6,22 +6,24 @@ use Illuminate\View\Component;
 
 class DropdownItem extends Component
 {
-    protected $method;
-    protected $id;
-    protected $route;
-    protected $name;
+    public $method;
+    public $id;
+    public $route;
+    public $name;
+    public $withDivider;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(string $route, string $name, int $id = null, string $method = null)
+    public function __construct(string $name = null, string $route = null, int $id = null, string $method = null, $withDivider = null)
     {
         $this->method = $method;
         $this->id = $id;
         $this->route = $route;
         $this->name = $name;
+        $this->withDivider = $withDivider;
     }
 
     /**
@@ -31,6 +33,6 @@ class DropdownItem extends Component
      */
     public function render()
     {
-        return view('components.dropdown.dropdown-item');
+        return view('components.dropdown-item');
     }
 }

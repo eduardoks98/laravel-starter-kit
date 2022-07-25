@@ -3,7 +3,6 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use Illuminate\View\Component\Navbar;
 
 class SidebarItem extends Component
 {
@@ -24,6 +23,6 @@ class SidebarItem extends Component
      */
     public function render()
     {
-        return view('components.navbar.sidebar-item');
+        return view('components.sidebar-item');
     }
 }

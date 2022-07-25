@@ -9,9 +9,9 @@
                   </div>
                   <!-- Actions -->
                   <div class="col d-flex justify-content-end">
-                      <x-dropdown.dropdown :name="'Ações'" :toggle="'_acoes'">
-                          <x-dropdown.dropdown-item :name="'Teste'" :route="'teste'"  />
-                      </x-dropdown.dropdown>
+                      <x-dropdown :toggle="'_acoes'" :name="'Ações'" >
+                          <x-dropdown-item :name="'Teste'" :route="'teste'"  />
+                      </x-dropdown>
                   </div>
               </div>
           </div>

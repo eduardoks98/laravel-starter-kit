@@ -73,6 +73,7 @@
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
@@ -86,6 +87,7 @@
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
@@ -95,13 +97,18 @@
 
 
 /* Boostrap fixes */
-
+/* Dropdown */
 #_user_dropdown.dropdown-menu-right {
     margin: 0.5rem -9rem !important;
 }
 
 .dropdown-menu-right {
     margin: 0.5rem -7.2rem;
+}
+
+.dropdown__arrow {
+    padding: 3px 0px 0px 0.5rem;
+    margin-right: -0.15rem;
 }
 
 
@@ -177,6 +184,7 @@ button.nav-link {
         overflow: hidden;
         white-space: nowrap;
     }
+
     .sidebar:not(.show) .nav-link .badge__collapse {
         position: relative;
         margin-left: -27px !important;
@@ -188,9 +196,11 @@ button.nav-link {
         border: 1px solid gray;
         background-color: #ffd6e0 !important;
     }
+
     .sidebar {
         position: fixed;
     }
+
     .main__container {
         margin-left: 60px;
     }
@@ -200,13 +210,14 @@ button.nav-link {
     .collapse.navbar-collapse.show .nav__label {
         opacity: 1;
     }
+
     .collapse.navbar-collapse.show {
         position: absolute;
         top: 57px;
         width: 100%;
         background-color: #e7eaf0;
         padding: 0 24px;
-        margin: -11px -24px;
+        margin: 0px -24px;
     }
 }
 

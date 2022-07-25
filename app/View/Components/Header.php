@@ -3,9 +3,8 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use Illuminate\View\Component\Navbar;
 
-class Sidebar extends Component
+class Header extends Component
 {
     /**
      * Create a new component instance.
@@ -24,6 +23,6 @@ class Sidebar extends Component
      */
     public function render()
     {
-        return view('components.navbar.sidebar');
+        return view('components.header');
     }
 }

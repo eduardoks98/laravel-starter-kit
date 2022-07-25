@@ -6,20 +6,22 @@ use Illuminate\View\Component;
 
 class Dropdown extends Component
 {
-    protected $toggle;
-    protected $dontCloseOnOutClick;
-    protected $name;
+    public $toggle;
+    public $dontCloseOnOutClick;
+    public $name;
+    public $button;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(string $toggle, string $name, bool $dontCloseOnOutClick = false)
+    public function __construct(string $toggle, string $name = null, bool $dontCloseOnOutClick = false, $button = null)
     {
         $this->toggle = $toggle;
         $this->dontCloseOnOutClick = $dontCloseOnOutClick;
         $this->name = $name;
+        $this->button = $button;
     }
 
     /**
@@ -29,6 +31,6 @@ class Dropdown extends Component
      */
     public function render()
     {
-        return view('components.dropdown.dropdown');
+        return view('components.dropdown');
     }
 }

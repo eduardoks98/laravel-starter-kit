@@ -26,11 +26,11 @@
     <div id="app">
         <div class="d-flex flex-column flex-lg-row h-lg-full bg-gray-100">
             <!-- Vertical Navbar -->
-            <x-navbar.sidebar />
+            <x-sidebar />
             <!-- Main content -->
             <div class="main__container h-screen  flex-grow-1 overflow-y-lg-auto">
                 <!-- Horizontal Header -->
-                <x-navbar.header />
+                <x-header />
                 <main class="py-10 bg-surface-secondary">
                     <!-- Container -->
                     @yield('content')
