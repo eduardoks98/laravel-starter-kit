@@ -12,16 +12,18 @@ class NotificationBadge extends Component
      *
      * @var string
      */
-    public $total;
+    public $description;
+    public $type;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(int $total)
+    public function __construct(mixed $description, string $type)
     {
-        $this->total = $total;
+        $this->description = $description;
+        $this->type = $type;
     }
 
     /**

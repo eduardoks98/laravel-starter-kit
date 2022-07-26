@@ -1,5 +1,5 @@
 (function(){
     $(document).ready(function(){
-        $('#_home_link').addClass('active');
+        $('#_dashboard_link').addClass('active');
     });
 })()

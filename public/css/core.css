@@ -73,7 +73,6 @@
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
-
     100% {
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
@@ -87,7 +86,6 @@
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
-
     100% {
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
@@ -97,7 +95,10 @@
 
 
 /* Boostrap fixes */
+
+
 /* Dropdown */
+
 #_user_dropdown.dropdown-menu-right {
     margin: 0.5rem -9rem !important;
 }
@@ -140,6 +141,11 @@
 
 /* Navbar */
 
+.navbar-divider {
+    color: silver;
+    margin: 0 20px;
+}
+
 button.nav-link {
     background-color: transparent !important;
     width: 100%;
@@ -152,10 +158,10 @@ button.nav-link {
     padding-left: 1.25rem !important;
 }
 
-.nav-link.active {
+.nav-link.active{
     background-color: transparent !important;
     background-color: #F5F9FC !important;
-    border-left: .25rem solid #4e52d0;
+    border-left: .25rem solid #4e52d0 !important;
     padding-left: 1.25rem !important;
 }
 
@@ -184,23 +190,31 @@ button.nav-link {
         overflow: hidden;
         white-space: nowrap;
     }
-
     .sidebar:not(.show) .nav-link .badge__collapse {
         position: relative;
+        /* Hide the text. */
+        font-size:0px;
+        white-space: nowrap;
+        overflow: hidden;
+
         margin-left: -27px !important;
         margin-top: -23px;
-        color: transparent !important;
-        width: 10px;
-        height: 10px;
+        min-width: 10px;
+        min-height: 10px;
+        max-width: 10px;
+        max-height: 10px;
         padding: 0px;
-        border: 1px solid gray;
-        background-color: #ffd6e0 !important;
-    }
+        border: 1px solid;
 
+        -webkit-transition: margin 200ms ease-in-out;
+        -moz-transition: margin 200ms ease-in-out;
+        -ms-transition: margin 200ms ease-in-out;
+        -o-transition: margin 200ms ease-in-out;
+        transition: margin 200ms ease-in-out;
+    }
     .sidebar {
         position: fixed;
     }
-
     .main__container {
         margin-left: 60px;
     }
@@ -210,7 +224,6 @@ button.nav-link {
     .collapse.navbar-collapse.show .nav__label {
         opacity: 1;
     }
-
     .collapse.navbar-collapse.show {
         position: absolute;
         top: 57px;
@@ -253,4 +266,11 @@ button.nav-link {
     -ms-transition: all 200ms ease-in-out;
     -o-transition: all 200ms ease-in-out;
     transition: all 200ms ease-in-out;
+}
+
+
+/* Notifications */
+
+.badge__collapse {
+    border: 1px solid;
 }

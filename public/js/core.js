@@ -24,6 +24,9 @@
 
         // Toggle to collapse dropdowns menus
         bindAllDropdown();
+
+        // Remove active class when click on other navigation item
+        changeActiveItemMenu();
     });
 
     function initComplete() {
@@ -39,6 +42,8 @@
         });
     }
 
+
+
     function bindAllCollapse() {
 
         $('*[data-collapse-toggle]').each(function() {
@@ -51,7 +56,7 @@
                 if (isShowing) toggler.removeClass('show');
                 else toggler.addClass('show');
                 mouseInside = true;
-                console.log('Show ' + id + ': ' + !isShowing);
+                // console.log('Show ' + id + ': ' + !isShowing);
             });
 
 
@@ -65,7 +70,7 @@
                 var hasClass = $('#' + id).hasClass('show');
 
                 if (!mouseInside && hasClass) {
-                    console.log('fechar ' + id);
+                    // console.log('fechar ' + id);
                     $('#' + id).removeClass('show');
                 }
             });
@@ -97,7 +102,7 @@
                 if (isShowingForDropdownMenu && (mouseHover === false || samePosition)) dropdownMenuToggler.removeClass('show');
                 else dropdownMenuToggler.addClass('show');
 
-                console.log(lastMousePosition, samePosition, mouseHover, isShowingForDropdownMenu && (mouseHover === false || samePosition));
+                // console.log(lastMousePosition, samePosition, mouseHover, isShowingForDropdownMenu && (mouseHover === false || samePosition));
                 mouseHover = true;
                 lastClickedPosition = lastMousePosition;
                 // console.log('Show ' + id + ': ' + !isShowingForDropdownMenu);
@@ -141,5 +146,23 @@
         });
     }
 
+    function changeActiveItemMenu() {
+        $('li.nav-item').each(function() {
+            $(this).find('.nav-link').unbind().bind('click', function() {
+                inactiveAllItems();
+                var item = $(this);
+                item.addClass('active');
+            });
+        });
+    }
+
+    function inactiveAllItems() {
+        $('*.nav-link').each(function() {
+            var item = $(this);
+            if (item.hasClass('active')) {
+                item.removeClass('active');
+            }
+        });
+    }
 
 })()

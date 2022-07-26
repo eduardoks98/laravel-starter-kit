@@ -4,21 +4,20 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Sidebar extends Component
+class SidebarNavigation extends Component
 {
-    public $toggle;
-    public $logoSrc;
-    public $mobileMenu;
+
+    public $pushDown;
+    public $classe;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(string $toggle, string $logoSrc, $mobileMenu = null)
+    public function __construct(bool $pushDown = false, string $classe = null)
     {
-       $this->toggle = $toggle;
-       $this->logoSrc = $logoSrc;
-       $this->mobileMenu = $mobileMenu;
+        $this->pushDown = $pushDown; 
+        $this->classe = $classe; 
     }
 
     /**
@@ -28,6 +27,6 @@ class Sidebar extends Component
      */
     public function render()
     {
-        return view('components.sidebar');
+        return view('components.sidebar-navigation');
     }
 }

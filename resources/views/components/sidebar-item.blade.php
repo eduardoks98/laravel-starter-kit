@@ -1,6 +1,29 @@
-<div>
-    <!-- 
-  <options=bold>“ Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. ”</>
-  <fg=gray>— Marie Curie</>
- -->
-</div>
+@if (isset($method))
+    <li class="nav-item">
+        <form action="{{ $route }}" method="{{ $method == 'GET' ? 'GET' : 'POST' }}">
+            @csrf
+            @if (!in_array($method, ['GET', 'POST']))
+                @method($method)
+            @endif
+            <button class="nav-link" type="submit">
+                <div class="nav__icon">
+                    <i class="{{ $icon }}"></i>
+                </div>
+
+                <div class="nav__label"> {{ $name }} </div>
+            </button>
+        </form>
+    </li>
+@else
+    <li class="nav-item">
+        <a class="nav-link" href="{{ $route }}" id="{{ $id }}">
+            <div class="nav__icon">
+                <i class="{{ $icon }}"></i>
+            </div>
+            <div class="nav__label"> {{ $name }} </div>
+            @if (isset($notification))
+                {{ $notification }}
+            @endif
+        </a>
+    </li>
+@endif
