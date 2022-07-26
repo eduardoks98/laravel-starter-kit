@@ -73,6 +73,7 @@
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
@@ -86,6 +87,7 @@
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
@@ -158,7 +160,7 @@ button.nav-link {
     padding-left: 1.25rem !important;
 }
 
-.nav-link.active{
+.nav-link.active {
     background-color: transparent !important;
     background-color: #F5F9FC !important;
     border-left: .25rem solid #4e52d0 !important;
@@ -190,10 +192,11 @@ button.nav-link {
         overflow: hidden;
         white-space: nowrap;
     }
+
     .sidebar:not(.show) .nav-link .badge__collapse {
         position: relative;
         /* Hide the text. */
-        font-size:0px;
+        font-size: 0px;
         white-space: nowrap;
         overflow: hidden;
 
@@ -212,9 +215,11 @@ button.nav-link {
         -o-transition: margin 200ms ease-in-out;
         transition: margin 200ms ease-in-out;
     }
+
     .sidebar {
         position: fixed;
     }
+
     .main__container {
         margin-left: 60px;
     }
@@ -224,6 +229,7 @@ button.nav-link {
     .collapse.navbar-collapse.show .nav__label {
         opacity: 1;
     }
+
     .collapse.navbar-collapse.show {
         position: absolute;
         top: 57px;
@@ -273,4 +279,10 @@ button.nav-link {
 
 .badge__collapse {
     border: 1px solid;
+}
+
+
+.badge.badge__datatable i {
+    width: 2rem;
+    border-radius: .3rem;
 }

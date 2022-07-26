@@ -23,10 +23,10 @@
         <div class="navbar-user d-lg-none">
             {{$mobileMenu}}
         </div>
+        
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="_navbar_collapse">
             {{$slot}}
-          
         </div>
     </div>
 </nav>
