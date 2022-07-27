@@ -2,6 +2,9 @@
 @section('title', 'Usuários')
 @section('import', 'users/index')
 @section('actions')
+    <x-datatable-filter :table="'_user'">
+
+    </x-datatable-filter>
     <x-dropdown :toggle="'_acoes'"
                 :name="'Ações'">
         <x-dropdown-item :name="'Action'"
@@ -14,7 +17,8 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <x-datatable :total="$users->count()">
+            <x-datatable :id="'_user_table'"
+                         :total="$users->count()">
                 <x-slot:heads>
                     <x-datatable-head-column>Nome</x-datatable-head-column>
                     <x-datatable-head-column>Email</x-datatable-head-column>
