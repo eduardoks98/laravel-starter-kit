@@ -1,6 +1,7 @@
 <div class="card">
     <div class="table-responsive">
-        <table class="table table-hover table-nowrap">
+        <table class="table table-hover table-nowrap"
+               id="{{ $id }}">
             <thead class="table-light">
                 <tr>
                     @if (isset($heads))

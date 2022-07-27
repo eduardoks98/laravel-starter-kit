@@ -8,15 +8,17 @@ class Datatable extends Component {
     public $heads;
     public $bodys;
     public $total;
+    public $id;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(int $total, $heads = null, $bodys = null) {
+    public function __construct(int $total, string $id, $heads = null,  $bodys = null) {
         $this->total = $total;
         $this->heads = $heads;
         $this->bodys = $bodys;
+        $this->id = $id;
     }
 
     /**
