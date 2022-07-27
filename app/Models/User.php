@@ -29,6 +29,9 @@ class User extends Authenticatable {
     protected $hidden = [
         'password',
         'remember_token',
+        'created_by',
+        'updated_by',
+        'deleted_by',
     ];
 
     /**
@@ -41,22 +44,4 @@ class User extends Authenticatable {
     ];
 
 
-    protected $datatableFields = [
-        [
-            'field' => 'Nome',
-            'slug' => 'name'
-        ],
-        [
-            'field' => 'E-mail',
-            'slug' => 'email'
-        ],
-        [
-            'field' => 'Por',
-            'slug' => 'created_at'
-        ],
-    ];
-
-    public function getDatatableFields() {
-        return toObject($this->datatableFields);
-    }
 }
