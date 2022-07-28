@@ -1,10 +1,12 @@
 <x-dropdown :toggle="$table . '_filter'"
             :name="'Filtro'">
     <x-slot:button>
-        <button class="btn d-inline-flex btn-sm btn-primary mx-1"
-                data-dropdown-toggle="{{ $table }}_filter_dropdown">
+        <x-button>
+            <x-slot:attributes>
+                data-dropdown-toggle="{{ $table }}_filter_dropdown"
+            </x-slot:attributes>
             <i class="fa-solid fa-filter"></i>
-        </button>
+        </x-button>
     </x-slot:button>
     
     <x-dropdown-item :name="'Action'"

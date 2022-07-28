@@ -26,7 +26,7 @@
                 </x-slot:heads>
                 <x-slot:bodys>
                     @foreach ($users as $item)
-                        <x-datatable-body-row>
+                        <x-datatable-body-row :view="route('users.show', $item)">
                             <x-datatable-body-column>{{ $item->name }}</x-datatable-body-column>
                             <x-datatable-body-column>{{ $item->email }}</x-datatable-body-column>
                             <x-datatable-body-column>

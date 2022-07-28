@@ -32,7 +32,7 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('users.create');
     }
 
     /**
@@ -42,7 +42,6 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
     }
 
     /**
@@ -52,7 +51,7 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(User $user) {
-        //
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -62,7 +61,7 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user) {
-        //
+        return view('users.edit', compact('user'));
     }
 
     /**

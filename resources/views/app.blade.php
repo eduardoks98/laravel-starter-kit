@@ -54,10 +54,18 @@
                     <x-sidebar-item :route="route('home')" :name="'Dashboard'" :icon="'fa-solid fa-house'" :id="'_dashboard_link'" />
 
                      <!-- Users -->
-                     <x-sidebar-item :route="route('users')" :name="'Usuários'" :icon="'fa-solid fa-users'" :id="'_usuarios_link'">
-                        {{-- <x-slot:notification>
+                     <x-sidebar-item :route="route('users.index')" :name="'Usuários'" :icon="'fa-solid fa-users'" :id="'_users_link'">
+                        <x-slot:notification>
                             <x-notification-badge :description=99 :type="'danger'" />
-                        </x-slot:notification> --}}
+                        </x-slot:notification>
+                    </x-sidebar-item>
+
+                    
+                     <!-- Articles -->
+                     <x-sidebar-item :route="route('articles.index')" :name="'Artigos'" :icon="'fa-solid fa-newspaper'" :id="'_articles_link'">
+                        <x-slot:notification>
+                            <x-notification-badge :description=1 :type="'warning'" />
+                        </x-slot:notification>
                     </x-sidebar-item>
                 </x-sidebar-navigation>
 

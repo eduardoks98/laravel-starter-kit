@@ -1,5 +1,5 @@
 (function(){
     $(document).ready(function(){
-        $('#_users_link').addClass('active');
+        $('#_articles_link').addClass('active');
     });
 })()

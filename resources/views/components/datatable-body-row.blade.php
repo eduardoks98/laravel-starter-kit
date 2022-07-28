@@ -1,7 +1,7 @@
-<tr @if (isset($class)) class="{{ $class }}"  @endif>
+<tr @if (isset($class)) class="{{ $class }}" @endif>
     {{ $slot }}
     <x-datatable-body-column :class="'text-end'">
-        <a href="#"
+        <a href="{{ isset($view) ? $view : '#' }}"
            class="btn btn-sm btn-neutral">View</a>
     </x-datatable-body-column>
 </tr>
