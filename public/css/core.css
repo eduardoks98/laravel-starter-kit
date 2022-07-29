@@ -229,6 +229,15 @@ button.nav-link {
         white-space: nowrap;
     }
 
+    .sidebar.show .translate-x-1\/2 {
+        --x-translate-x: 0% !important;
+        right: 1rem;
+
+    }
+    .sidebar.show .translate-y-n1\/2 {
+        --x-translate-y: 0% !important;
+    }
+    
     .sidebar:not(.show) .nav-link .badge__collapse {
         position: relative;
         /* Hide the text. */
@@ -266,6 +275,14 @@ button.nav-link {
         opacity: 1;
     }
 
+    .translate-x-1\/2 {
+        --x-translate-x: 0% !important;
+        right: 1rem;
+    }
+    .translate-y-n1\/2 {
+        --x-translate-y: 0% !important;
+    }
+
     .collapse.navbar-collapse.show {
         position: absolute;
         top: 57px;
@@ -295,14 +312,14 @@ button.nav-link {
     align-content: center;
     align-items: flex-end !important;
 }
-
+[trigger-animation],
 [trigger-hover],
 [triggered-hover] {
-    -webkit-transition: all 200ms ease-in-out;
-    -moz-transition: all 200ms ease-in-out;
-    -ms-transition: all 200ms ease-in-out;
-    -o-transition: all 200ms ease-in-out;
-    transition: all 200ms ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 [trigger-hover]:hover [triggered-hover] {
@@ -319,10 +336,4 @@ button.nav-link {
 
 .badge__collapse {
     border: 1px solid;
-}
-
-
-.badge.badge__datatable i {
-    width: 2rem;
-    border-radius: .3rem;
 }

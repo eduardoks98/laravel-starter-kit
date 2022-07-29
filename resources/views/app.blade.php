@@ -56,7 +56,7 @@
                      <!-- Users -->
                      <x-sidebar-item :route="route('users.index')" :name="'Usuários'" :icon="'fa-solid fa-users'" :id="'_users_link'">
                         <x-slot:notification>
-                            <x-notification-badge :description=99 :type="'danger'" />
+                            <x-notification-badge :description="'Novo'" :type="'danger'" />
                         </x-slot:notification>
                     </x-sidebar-item>
 

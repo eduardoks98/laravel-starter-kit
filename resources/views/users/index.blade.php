@@ -30,9 +30,7 @@
                             <x-datatable-body-column>{{ $item->name }}</x-datatable-body-column>
                             <x-datatable-body-column>{{ $item->email }}</x-datatable-body-column>
                             <x-datatable-body-column>
-                                <span class="badge badge-lg badge__datatable badge-dot">
-                                    <i class="bg-success"></i>
-                                </span>
+                                <span class="badge bg-soft-success text-success">Ativo</span>
                             </x-datatable-body-column>
 
                         </x-datatable-body-row>

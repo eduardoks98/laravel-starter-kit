@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RolePermission extends Model
+class RolePermission extends BaseModel
 {
     use HasFactory;
 
@@ -16,18 +16,8 @@ class RolePermission extends Model
      * @var array
      */
     protected $fillable = [
-        'description',
-        'slug',
+        'id_role',
+        'id_permission',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'created_by',
-        'updated_by',
-        'deleted_by',
-    ];
 }

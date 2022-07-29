@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserRouteTracker extends BaseModel
 {
     use HasFactory;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -16,6 +16,7 @@ class UserRouteTracker extends BaseModel
      */
     protected $fillable = [
         'id_user',
-        'id_permission',
+        'route',
+        'method',
     ];
 }
