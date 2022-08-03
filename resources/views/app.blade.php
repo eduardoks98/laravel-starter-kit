@@ -101,6 +101,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.map"></script>
         <!-- Fontaweasome -->
         <script src="https://kit.fontawesome.com/ac03b4bf83.js"></script>
+        <!-- Editor.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/editor.js/2.16.0/editor.js"></script>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/core.js') }}" defer></script>

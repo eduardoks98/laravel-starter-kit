@@ -1,6 +1,3 @@
-<div>
-    <!-- 
-  <options=bold>“ Breathing in, I calm body and mind. Breathing out, I smile. ”</>
-  <fg=gray>— Thich Nhat Hanh</>
- -->
-</div>
+<div class="editorjs_content" id="editorjs"></div>
+
+<pre id="output"></pre>
