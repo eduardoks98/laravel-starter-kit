@@ -104,6 +104,7 @@
         <!-- Editor.js -->
         <script src="https://cdn.jsdelivr.net/combine/npm/@editorjs/simple-image@1.4.1,npm/@editorjs/image@2.6.2,npm/@editorjs/embed@2.5.2,npm/@editorjs/editorjs@2.25.0,npm/@editorjs/header@2.6.2,npm/@editorjs/warning@1.2.0,npm/@editorjs/raw@2.3.1,npm/@editorjs/inline-code@1.3.1,npm/@editorjs/delimiter@1.2.0,npm/@editorjs/list@1.7.0,npm/@editorjs/link@2.4.1,npm/@editorjs/code@2.7.0,npm/@editorjs/marker@1.2.2,npm/@editorjs/quote@2.4.0"></script>
         <!-- Scripts -->
+        <script src="{{ asset('js/toastr.min.js') }}" defer></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/core.js') }}" defer></script>
         <script src="{{ asset('js/' . $__env->yieldContent('import') . '.js') }}" defer></script>

@@ -90,7 +90,7 @@
                     }
                 }
             },
-            simple:SimpleImage,
+            simple: SimpleImage,
             header: {
                 class: Header,
                 config: {
@@ -173,12 +173,14 @@
             "version": "2.25.0"
         }
     });
-    const saveButton = document.getElementById('save-button');
-    const output = document.getElementById('output');
-    saveButton.addEventListener('click', () => {
-        editor.save().then(savedData => {
-            output.innerHTML = JSON.stringify(savedData, null, 4);
-        })
+    const salvar = $('#_salvar_article');
+    const storeUrl = salvar.attr('data-action');
+    salvar.click(async() => {
+        var form = {};
+        await editor.save().then(savedData => {
+            form.article = savedData;
+        });
+        await Util.salvar(storeUrl, form);
     })
     $(document).ready(function() {
         $('#_articles_link').addClass('active');

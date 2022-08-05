@@ -5,9 +5,10 @@
 @section('actions')
     <x-button>
         <x-slot:attributes>
-            id="save-button"
+            id="_salvar_article"
+            data-action="{{ route('articles.store') }}"
         </x-slot:attributes>
-       Salvar
+        Salvar
     </x-button>
 @endsection
 

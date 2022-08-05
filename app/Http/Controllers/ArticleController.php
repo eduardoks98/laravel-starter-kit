@@ -6,6 +6,7 @@ use App\Models\article;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorearticleRequest;
 use App\Http\Requests\UpdatearticleRequest;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -35,9 +36,9 @@ class ArticleController extends Controller
      * @param  \App\Http\Requests\StorearticleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorearticleRequest $request)
+    public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
