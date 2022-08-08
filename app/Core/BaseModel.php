@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BaseModel extends Model
 {
+    use HasFactory;
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -17,4 +19,14 @@ class BaseModel extends Model
         'updated_by',
         'deleted_by',
     ];
+
+    /**
+     * Retorna uma nova instancia da classe chamada
+     * 
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public static function new() {
+        $class = get_called_class();
+        return new $class;
+    }
 }

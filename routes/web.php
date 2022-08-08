@@ -24,6 +24,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::prefix('users')->name('users')->group(function () {
 //     Route::get('', [UserController::class, 'index']);
 // });
-
-Route::resource('articles', ArticleController::class);
-Route::resource('users', UserController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('articles', ArticleController::class);
+    Route::resource('users', UserController::class);
+});

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\article;
+use App\Models\Article;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorearticleRequest;
-use App\Http\Requests\UpdatearticleRequest;
+use App\Http\Requests\StoreArticleRequest;
+use App\Http\Requests\UpdateArticleRequest;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -17,7 +17,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('articles.index');
+        $articles = Article::get();
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -27,61 +28,81 @@ class ArticleController extends Controller
      */
     public function create()
     {
-       return view('articles.create');
+        return view('articles.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorearticleRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        return $request->all();
+        try {
+            beginTransaction();
+            $validated = app(StoreArticleRequest::class);
+
+            $article = Article::store($validated->validated());
+            commit();
+            return true;
+        } catch (\Throwable $th) {
+            rollback();
+            throwException($th);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\article  $article
+     * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(article $article)
+    public function show(Article $article)
     {
-       return view('articles.show', compact('article'));
+        return view('articles.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\article  $article
+     * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(article $article)
+    public function edit(Article $article)
     {
-       return view('articles.edit', compact('article'));
+        return view('articles.edit', compact('article'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatearticleRequest  $request
-     * @param  \App\Models\article  $article
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatearticleRequest $request, article $article)
+    public function update(Request $request, Article $article)
     {
-        //
+        try {
+            beginTransaction();
+            app(UpdateArticleRequest::class);
+
+            $article = Article::edit($request);
+            commit();
+            return redirect()->action([$this, 'index']);
+        } catch (\Throwable $th) {
+            rollback();
+            throwException($th);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\article  $article
+     * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(article $article)
+    public function destroy(Article $article)
     {
         //
     }

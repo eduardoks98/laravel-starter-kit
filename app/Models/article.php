@@ -2,10 +2,54 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Core\BaseModel;
+use App\Http\Requests\StoreArticleRequest;
+use App\Http\Requests\UpdateArticleRequest;
+use Illuminate\Database\Eloquent\Casts\AsCollection;
 
-class article extends Model
+class Article extends BaseModel
 {
-    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'article',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'article' => AsCollection::class,
+    ];
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  array  $validated
+     * @return \App\Models\Article
+     */
+    public static function store(array $validated)
+    {
+        $fillables = fillKeysWith(self::new()->getFillable(), $validated);
+        $article = self::create($fillables);
+
+        return $article;
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  array  $validated
+     * @param  \App\Models\Article  $article
+     * @return \App\Models\Article
+     */
+    public static function edit(array $validated, Article $article)
+    {
+    }
 }

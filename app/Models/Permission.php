@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Core\BaseModel;
 
 class Permission extends BaseModel
 {
-    use HasFactory;
 
     /**
      * The attributes that are mass assignable.

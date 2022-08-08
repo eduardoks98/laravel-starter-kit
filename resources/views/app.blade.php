@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/core.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/' . $__env->yieldContent('import') . '.css') }}" rel="stylesheet">
 
 </head>
@@ -34,14 +35,14 @@
                         <x-slot:button>
                             <a id="sidebarAvatar" role="button" data-dropdown-toggle="_user_dropdown" trigger-hover>
                                 <div class="avatar rounded-circle text-white">
-                                    <img alt="..." src="{{ gravatar(auth()->user()->email) }}" triggered-hover>
+                                    <img alt="..." src="{{ gravatar(isset(auth()->user()->email) ? auth()->user()->email : '') }}" triggered-hover>
                                 </div>
                             </a>
                         </x-slot:button>
                         <x-dropdown-item>
                             <x-slot:name>
                                 <span class="d-block text-sm text-muted mb-1">Bem vindo(a)</span>
-                                <span class="d-block text-heading font-semibold">{{ auth()->user()->name }}</span>
+                                <span class="d-block text-heading font-semibold">{{ auth()->user()->name ?? '' }}</span>
                             </x-slot:name>
                         </x-dropdown-item>
                         <x-dropdown-item :name="'Sair'" :route="route('logout')" :method="'POST'" :withDivider=true />
@@ -53,16 +54,16 @@
                     <!-- Dashaboard -->
                     <x-sidebar-item :route="route('home')" :name="'Dashboard'" :icon="'fa-solid fa-house'" :id="'_dashboard_link'" />
 
-                     <!-- Users -->
-                     <x-sidebar-item :route="route('users.index')" :name="'Usuários'" :icon="'fa-solid fa-users'" :id="'_users_link'">
+                    <!-- Users -->
+                    <x-sidebar-item :route="route('users.index')" :name="'Usuários'" :icon="'fa-solid fa-users'" :id="'_users_link'">
                         <x-slot:notification>
                             <x-notification-badge :description="'Novo'" :type="'danger'" />
                         </x-slot:notification>
                     </x-sidebar-item>
 
-                    
-                     <!-- Articles -->
-                     <x-sidebar-item :route="route('articles.index')" :name="'Artigos'" :icon="'fa-solid fa-newspaper'" :id="'_articles_link'">
+
+                    <!-- Articles -->
+                    <x-sidebar-item :route="route('articles.index')" :name="'Artigos'" :icon="'fa-solid fa-newspaper'" :id="'_articles_link'">
                         <x-slot:notification>
                             <x-notification-badge :description=1 :type="'warning'" />
                         </x-slot:notification>
@@ -82,7 +83,7 @@
                 <!-- Horizontal Header -->
                 <x-header :title="$__env->yieldContent('title')">
                     @yield('actions')
-                  
+
                 </x-header>
                 <main class="py-10 bg-surface-secondary">
                     <!-- Container -->
@@ -108,6 +109,9 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/core.js') }}" defer></script>
         <script src="{{ asset('js/' . $__env->yieldContent('import') . '.js') }}" defer></script>
+        @hasSection('_form')
+            <script src="{{ asset('js/' . $__env->yieldContent('_form') . '.js') }}" defer></script>
+        @endif
     </footer>
 </body>
 

@@ -2,6 +2,7 @@
 @section('back', route('articles.index'))
 @section('title', 'Criar um artigo')
 @section('import', 'articles/create')
+@section('_form', 'articles/_form')
 @section('actions')
     <x-button>
         <x-slot:attributes>
