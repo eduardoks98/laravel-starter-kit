@@ -1,5 +1,5 @@
-@extends('app')
-@section('back', route('articles.index'))
+@extends('admin.master')    
+@section('back', route('admin.articles.index'))
 @section('title', 'Criar um artigo')
 @section('import', 'articles/create')
 @section('_form', 'articles/_form')
@@ -7,7 +7,7 @@
     <x-button>
         <x-slot:attributes>
             id="_salvar_article"
-            data-action="{{ route('articles.store') }}"
+            data-action="{{ route('admin.articles.store') }}"
         </x-slot:attributes>
         Salvar
     </x-button>

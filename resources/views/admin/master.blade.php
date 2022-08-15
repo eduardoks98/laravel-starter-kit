@@ -45,7 +45,8 @@
                                 <span class="d-block text-heading font-semibold">{{ auth()->user()->name ?? '' }}</span>
                             </x-slot:name>
                         </x-dropdown-item>
-                        <x-dropdown-item :name="'Sair'" :route="route('logout')" :method="'POST'" :withDivider=true />
+                        <x-dropdown-item :name="'Visualizar site'" :route="route('home')" :withDivider=true />
+                        <x-dropdown-item :name="'Sair'" :route="route('logout')" :method="'POST'"  />
                     </x-dropdown>
                 </x-slot:mobileMenu>
                 <!-- Menu Items-->
@@ -55,7 +56,7 @@
                     <x-sidebar-item :route="route('home')" :name="'Dashboard'" :icon="'fa-solid fa-house'" :id="'_dashboard_link'" />
 
                     <!-- Users -->
-                    <x-sidebar-item :route="route('users.index')" :name="'Usuários'" :icon="'fa-solid fa-users'" :id="'_users_link'">
+                    <x-sidebar-item :route="route('admin.users.index')" :name="'Usuários'" :icon="'fa-solid fa-users'" :id="'_users_link'">
                         <x-slot:notification>
                             <x-notification-badge :description="'Novo'" :type="'danger'" />
                         </x-slot:notification>
@@ -63,7 +64,7 @@
 
 
                     <!-- Articles -->
-                    <x-sidebar-item :route="route('articles.index')" :name="'Artigos'" :icon="'fa-solid fa-newspaper'" :id="'_articles_link'">
+                    <x-sidebar-item :route="route('admin.articles.index')" :name="'Artigos'" :icon="'fa-solid fa-newspaper'" :id="'_articles_link'">
                         <x-slot:notification>
                             <x-notification-badge :description=1 :type="'warning'" />
                         </x-slot:notification>
@@ -75,6 +76,7 @@
 
                 <!-- Sair -->
                 <x-sidebar-navigation :pushDown=true :classe="'mb-5'">
+                    <x-sidebar-item :route="route('home')" :name="'Visualizar site'" :icon="'fa-solid fa-clapperboard'" />
                     <x-sidebar-item :route="route('logout')" :name="'Sair'" :icon="'fa-solid fa-arrow-right-from-bracket'" :method="'POST'" />
                 </x-sidebar-navigation>
             </x-sidebar>

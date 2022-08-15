@@ -25,7 +25,7 @@
         </div>
         
         <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="_navbar_collapse">
+        <div class="collapse navbar-collapse navbar__collapse__menu" id="_navbar_collapse">
             {{$slot}}
         </div>
     </div>

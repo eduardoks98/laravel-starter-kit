@@ -1,10 +1,10 @@
-@extends('app')
+@extends('admin.master')
 @section('title', 'Artigos')
 @section('import', 'articles/index')
 @section('actions')
     <x-button :type="'a'">
         <x-slot:attributes>
-            href="{{ route('articles.create') }}"
+            href="{{ route('admin.articles.create') }}"
         </x-slot:attributes>
         Criar
     </x-button>
@@ -27,7 +27,7 @@
                 </x-slot:heads>
                 <x-slot:bodys>
                     @foreach ($articles as $item)
-                        <x-datatable-body-row :view="route('articles.show', ['article' => $item])">
+                        <x-datatable-body-row :view="route('admin.articles.show', ['article' => $item])">
                             <x-datatable-body-column>{{ $item->id }}</x-datatable-body-column>
                             <x-datatable-body-column :class="'column__overflow'">{{ $item->article }}</x-datatable-body-column>
 

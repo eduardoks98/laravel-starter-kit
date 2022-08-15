@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin.master')
 @section('title', 'Usuários')
 @section('import', 'users/index')
 @section('actions')
@@ -26,7 +26,7 @@
                 </x-slot:heads>
                 <x-slot:bodys>
                     @foreach ($users as $item)
-                        <x-datatable-body-row :view="route('users.show', $item)">
+                        <x-datatable-body-row :view="route('admin.users.show', $item)">
                             <x-datatable-body-column>{{ $item->name }}</x-datatable-body-column>
                             <x-datatable-body-column>{{ $item->email }}</x-datatable-body-column>
                             <x-datatable-body-column>

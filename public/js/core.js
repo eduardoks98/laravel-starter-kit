@@ -148,7 +148,7 @@
 
     class Ajax {
 
-         isJson(str) {
+        isJson(str) {
             try {
                 JSON.parse(str);
             } catch (e) {
@@ -231,7 +231,7 @@
              * @returns
              */
         salvar(link, form = {}) {
-            
+
             return new Promise((resolve, reject) => {
                 $.ajax({
                     url: link,
@@ -253,6 +253,25 @@
             });
         }
     }
+
+    $(document).ready(function() {
+
+        $(".card__image").each(function(i,img) {
+            $('<img>').on('load',function() {
+                console.log('img load');
+                $( "p" ).last().text(
+                    " width:" +  $(img).width() +
+                    " , outerWidth:" +  $(img).outerWidth() +
+                    " , outerWidth( true ):" +  $(img).outerWidth( true ) );
+                $(img).css({
+                    position: "relative",
+                    left: ($(img).parent().outerWidth(true) - $(img).outerWidth(true)) / 2
+                });
+            })
+
+        });
+
+    });
 
     function Util() {
         return new Ajax();

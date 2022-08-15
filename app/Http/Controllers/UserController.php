@@ -23,7 +23,7 @@ class UserController extends Controller {
      */
     public function index() {
         $users = User::get();
-        return view('users.index', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -32,7 +32,7 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('users.create');
+        return view('admin.users.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(User $user) {
-        return view('users.show', compact('user'));
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -61,7 +61,7 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user) {
-        return view('users.edit', compact('user'));
+        return view('admin.users.edit', compact('user'));
     }
 
     /**

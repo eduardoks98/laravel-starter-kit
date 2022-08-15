@@ -1,5 +1,5 @@
-@extends('app')
-@section('back', route('articles.index'))
+@extends('admin.master')
+@section('back', route('admin.articles.index'))
 @section('title', 'Editar um artigo')
 @section('import', 'articles/edit')
 @section('_form', 'articles/_form')

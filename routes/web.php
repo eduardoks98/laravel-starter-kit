@@ -18,13 +18,19 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'home']);
+Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 // Route::prefix('users')->name('users')->group(function () {
 //     Route::get('', [UserController::class, 'index']);
 // });
 Route::middleware(['auth'])->group(function () {
-    Route::resource('articles', ArticleController::class);
-    Route::resource('users', UserController::class);
+
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('articles', ArticleController::class);
+        Route::resource('users', UserController::class);
+
+        Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+
+    });
 });

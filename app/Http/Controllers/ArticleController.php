@@ -18,7 +18,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::get();
-        return view('articles.index', compact('articles'));
+        return view('admin.articles.index', compact('articles'));
     }
 
     /**
@@ -28,7 +28,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        return view('admin.articles.create');
     }
 
     /**
@@ -60,7 +60,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('articles.show', compact('article'));
+        return view('admin.articles.show', compact('article'));
     }
 
     /**
@@ -71,7 +71,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        return view('admin.articles.edit', compact('article'));
     }
 
     /**

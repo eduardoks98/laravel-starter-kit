@@ -1,7 +1,7 @@
-@extends('app')
-@section('back', route('users.index'))
-@section('title', 'Criar um usuário')
-@section('import', 'users/create')
+@extends('admin.master')
+@section('back', route('admin.users.index'))
+@section('title', 'Editar um usuário')
+@section('import', 'users/edit')
 @section('actions')
     
 @endsection

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin.master')
 @section('title', 'Dashboard')
 @section('import', 'dashboard')
 @section('content')

@@ -1,11 +1,11 @@
 @if (isset($method))
-    <li class="nav-item">
+    <li class="nav-item admin__nav__item">
         <form action="{{ $route }}" method="{{ $method == 'GET' ? 'GET' : 'POST' }}">
             @csrf
             @if (!in_array($method, ['GET', 'POST']))
                 @method($method)
             @endif
-            <button class="nav-link" type="submit">
+            <button class="nav-link admin__nav__link" type="submit">
                 <div class="nav__icon">
                     <i class="{{ $icon }}"></i>
                 </div>
@@ -15,8 +15,8 @@
         </form>
     </li>
 @else
-    <li class="nav-item">
-        <a class="nav-link" href="{{ $route }}" id="{{ $id }}">
+    <li class="nav-item admin__nav__item">
+        <a class="nav-link admin__nav__link" href="{{ $route }}" id="{{ $id }}">
             @if (isset($notification))
                 {{ $notification }}
             @endif
