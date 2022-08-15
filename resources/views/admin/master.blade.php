@@ -27,7 +27,7 @@
     <div id="app">
         <div class="d-flex flex-column flex-lg-row h-lg-full bg-gray-100">
             <!-- Vertical Navbar -->
-            <x-sidebar :toggle="'_sidebar'" :logoSrc="'https://preview.webpixels.io/web/img/logos/clever-primary.svg'">
+            <x-sidebar :toggle="'_sidebar'" :logoSrc="'#'">
 
                 <!--Header mobile menu -->
                 <x-slot:mobileMenu>

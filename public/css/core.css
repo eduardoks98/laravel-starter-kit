@@ -95,6 +95,7 @@ button {
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
@@ -108,6 +109,7 @@ button {
         -ms-transform: rotate(0deg);
         transform: rotate(0deg);
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
@@ -295,6 +297,14 @@ button.admin__nav__link {
 
 .card__custom {
     padding: calc(var(--x-gutter-x) / 2);
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.card__custom:hover{
+    transform: scale(1.05);
 }
 
 .card__custom .card {
@@ -341,16 +351,29 @@ button.admin__nav__link {
     left: -50%;
 }
 
+.card__body {
+    overflow: hidden;
+}
+
+.card__body__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 95%;
+}
+
 
 /* Others */
 
 .text-justify {
     text-align: justify;
 }
-.text-right{
+
+.text-right {
     text-align: right;
 
 }
+
 .text__overflow__2 {
     display: -webkit-box !important;
     -webkit-line-clamp: 2;
@@ -373,13 +396,16 @@ button.admin__nav__link {
         overflow: hidden;
         white-space: nowrap;
     }
+
     .sidebar.show .translate-x-1\/2 {
         --x-translate-x: 0% !important;
         right: 1rem;
     }
+
     .sidebar.show .translate-y-n1\/2 {
         --x-translate-y: 0% !important;
     }
+
     .sidebar:not(.show) .admin__nav__link .badge__collapse {
         position: relative;
         /* Hide the text. */
@@ -400,9 +426,11 @@ button.admin__nav__link {
         -o-transition: margin 200ms ease-in-out;
         transition: margin 200ms ease-in-out;
     }
+
     .sidebar {
         position: fixed;
     }
+
     .main__container {
         margin-left: 60px;
     }
@@ -412,13 +440,16 @@ button.admin__nav__link {
     .collapse.navbar__collapse__menu.show .nav__label {
         opacity: 1;
     }
+
     .translate-x-1\/2 {
         --x-translate-x: 0% !important;
         right: 1rem;
     }
+
     .translate-y-n1\/2 {
         --x-translate-y: 0% !important;
     }
+
     .collapse.navbar__collapse__menu.show {
         position: absolute;
         top: 57px;
@@ -427,12 +458,15 @@ button.admin__nav__link {
         padding: 0 24px;
         margin: 2px -24px;
     }
+
     .guest__menu {
         background-color: #5c60f5 !important;
     }
+
     #_navbar_collapse {
         box-shadow: var(--box-shadow);
     }
+
     .navbar__collapse__button {
         background-color: transparent !important;
         border: none;
@@ -442,6 +476,7 @@ button.admin__nav__link {
         font-size: 0.925rem;
         padding-left: 0;
     }
+
     .navbar__collapse__button:active,
     .navbar__collapse__button:focus-visible,
     .navbar__collapse__button:focus,
